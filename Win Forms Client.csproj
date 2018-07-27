@@ -64,7 +64,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="test.cs" />
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,13 +91,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EskimoClassLibraries\EskimoClassLibraries.vbproj">
+    <Content Include="API.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EskimoClassLibraries\API_Class_Libraries\EskimoClassLibraries.vbproj">
       <Project>{dfe332e6-ec7b-46a5-ab58-6d16ae082e98}</Project>
       <Name>EskimoClassLibraries</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="API.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

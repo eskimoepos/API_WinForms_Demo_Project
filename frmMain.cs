@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Newtonsoft.Json.Linq;
-using EskimoClassLibraries;
+using EskimoClassLibraries; //https://github.com/eskimoepos/API_Class_Libraries
 using System.Reflection;
 using System.Net;
 using System.IO;
@@ -487,7 +487,7 @@ namespace Win_Forms_Client
                 Controller = (Controller)c.Clone(),
                 ActionResult = ControllerAction.ActionResultEnum.ClassList,
                 UseGrid = true,
-                Parameters = new TenderArguments() { CreditCardTenders = TenderArguments.FilterEnum.Exclude},
+                Parameters = new TenderArguments() { CreditCardTenders = modEnums.FilterEnum.Exclude},
             });
             m_Controllers.Add(c);
 
