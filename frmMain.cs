@@ -549,7 +549,7 @@ namespace Win_Forms_Client
                 Method = ControllerAction.MethodEnum.eGet,
                 Controller = (Controller)c.Clone(),
                 ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
-                UseGrid = true
+                UseGrid = false
             });
             c.Actions.Add(new ControllerAction(null)
             {
