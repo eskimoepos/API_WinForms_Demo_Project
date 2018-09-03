@@ -99,496 +99,518 @@ namespace Win_Forms_Client
 
             c = new Controller { Name = "Barcode" };
 
-            c.Actions.Add(new ControllerAction(typeof(clsBarcodeInfo))
-            {
-                Name = "GetInfo",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                Parameters = new BarcodeArguments() {   Barcode = "00000001",
-                                                        StartDay = 1,
-                                                        StartMonth = 1,
-                                                        EndDay = 20,
-                                                        EndMonth  = 12},
-                ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
-                UseGrid = false
-            });
-
-            c.Actions.Add(new ControllerAction(null)
-            {
-                Name = "ApplyAction",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                Parameters = new clsBarcodeAction()
+                c.Actions.Add(new ControllerAction(typeof(clsBarcodeInfo))
                 {
-                    ActionType = clsBarcodeAction.ActionTypeEnum.PrintBarcode,
-                    Notes = "These are some notes",
-                    OperatorID = "1",
-                    BarcodeScanned = "00000001",
-                    ProductDescription = "RUBBER RING",
-                    Qty = 2
+                    Name = "GetInfo",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new BarcodeArguments() {   Barcode = "00000001",
+                                                            StartDay = 1,
+                                                            StartMonth = 1,
+                                                            EndDay = 20,
+                                                            EndMonth  = 12},
+                    ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
+                    UseGrid = false
+                });
 
-                },
-                ActionResult = ControllerAction.ActionResultEnum.ResponseMessage
-            });
+                c.Actions.Add(new ControllerAction(null)
+                {
+                    Name = "ApplyAction",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new clsBarcodeAction()
+                    {
+                        ActionType = clsBarcodeAction.ActionTypeEnum.PrintBarcode,
+                        Notes = "These are some notes",
+                        OperatorID = "1",
+                        BarcodeScanned = "00000001",
+                        ProductDescription = "RUBBER RING",
+                        Qty = 2
+
+                    },
+                    ActionResult = ControllerAction.ActionResultEnum.ResponseMessage
+                });
             m_Controllers.Add(c);
 
             c = new Controller { Name = "CategoryProducts" };
 
-            c.Actions.Add(new ControllerAction(typeof(clsCategoryProduct))
-            {
-                Name = "All",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                Parameters = new EskimoClassLibraries.RecordSelection(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsCategoryProduct))
-            {
-                Name = "SpecificCategory",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                Parameters = new SingleStringID(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList
-            });
-            m_Controllers.Add(c);
+                c.Actions.Add(new ControllerAction(typeof(clsCategoryProduct))
+                {
+                    Name = "All",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new EskimoClassLibraries.RecordSelection(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList
+                });
+                c.Actions.Add(new ControllerAction(typeof(clsCategoryProduct))
+                {
+                    Name = "SpecificCategory",
+                    Method = ControllerAction.MethodEnum.eGet,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new SingleStringID(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList
+                });
+                m_Controllers.Add(c);
 
             c = new Controller { Name = "StockTaking" };
 
-            c.Actions.Add(new ControllerAction(typeof(clsStockTakingProductInfo))
-            {
-                Name = "GetProductData",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
-                UseGrid = false
-            });
-            c.Actions.Add(new ControllerAction(typeof(string))
-            {
-                Name = "RetrieveAreas",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsCountedProduct))
-            {
-                Name = "IncrementCounts",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                Parameters = new CountedProducts(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsCountedProduct))
-            {
-                Name = "ValidateStockTake",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                Parameters = new StockTakingValidateOptions() {  Area = "Contemporary Collection", DeviceID = "123ABC"},
-                ActionResult = ControllerAction.ActionResultEnum.ClassList
-            });
+                c.Actions.Add(new ControllerAction(typeof(clsStockTakingProductInfo))
+                {
+                    Name = "GetProductData",
+                    Method = ControllerAction.MethodEnum.eGet,
+                    Controller = (Controller)c.Clone(),
+                    ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
+                    UseGrid = false
+                });
+                c.Actions.Add(new ControllerAction(typeof(string))
+                {
+                    Name = "RetrieveAreas",
+                    Method = ControllerAction.MethodEnum.eGet,
+                    Controller = (Controller)c.Clone(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList
+                });
+                c.Actions.Add(new ControllerAction(typeof(clsCountedProduct))
+                {
+                    Name = "IncrementCounts",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new CountedProducts(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList
+                });
+                c.Actions.Add(new ControllerAction(typeof(clsCountedProduct))
+                {
+                    Name = "ValidateStockTake",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new StockTakingValidateOptions() {  Area = "Contemporary Collection", DeviceID = "123ABC"},
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList
+                });
             m_Controllers.Add(c);
 
             c = new Controller { Name = "ExternalCategories" };
 
-            c.Actions.Add(new ControllerAction(null)
-            {
-                Name = "Insert",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                Parameters = new ExternalCategoryParamClass(),
-                ActionResult = ControllerAction.ActionResultEnum.ResponseMessage
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsExternalCategory))
-            {
-                Name = "SpecificID",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                Parameters = new ExternalCategoriesArguments() { ID = "83042", Source = clsListing.ListingTypeEnum.eBay },
-                ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
-                UseGrid = false
-            });
+                c.Actions.Add(new ControllerAction(null)
+                {
+                    Name = "Insert",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new ExternalCategoryParamClass(),
+                    ActionResult = ControllerAction.ActionResultEnum.ResponseMessage
+                });
+                c.Actions.Add(new ControllerAction(typeof(clsExternalCategory))
+                {
+                    Name = "SpecificID",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new ExternalCategoriesArguments() { ID = "83042", Source = clsListing.ListingTypeEnum.eBay },
+                    ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
+                    UseGrid = false
+                });
             m_Controllers.Add(c);
 
             c = new Controller { Name = "Listings" };
 
-            c.Actions.Add(new ControllerAction(typeof(clsListing))
-            {
-                Name = "AllUnlisted",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                Parameters = new ListingsArguments(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList,
-                UseGrid = false
-            });
-            c.Actions.Add(new ControllerAction(null)
-            {
-                Name = "MarkAsListed",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                Parameters = new CompletedListings(),
-                ActionResult = ControllerAction.ActionResultEnum.ResponseMessage
-            });
+                c.Actions.Add(new ControllerAction(typeof(clsListing))
+                {
+                    Name = "AllUnlisted",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new ListingsArguments(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList,
+                    UseGrid = false
+                });
+                c.Actions.Add(new ControllerAction(null)
+                {
+                    Name = "MarkAsListed",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new CompletedListings(),
+                    ActionResult = ControllerAction.ActionResultEnum.ResponseMessage
+                });
             m_Controllers.Add(c);
 
             c = new Controller { Name = "Shops" };
-            c.Actions.Add(new ControllerAction(typeof(clsShop))
-            {
-                Name = "All",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsShop))
-            {
-                Name = "SpecificID",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                Parameters = new SingleStringID(),
-                ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance
-            });
+                c.Actions.Add(new ControllerAction(typeof(clsShop))
+                {
+                    Name = "All",
+                    Method = ControllerAction.MethodEnum.eGet,
+                    Controller = (Controller)c.Clone(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList
+                });
+                c.Actions.Add(new ControllerAction(typeof(clsShop))
+                {
+                    Name = "SpecificID",
+                    Method = ControllerAction.MethodEnum.eGet,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new SingleStringID(),
+                    ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance
+                });
             m_Controllers.Add(c);
 
             c = new Controller { Name = "Customers" };
-            c.Actions.Add(new ControllerAction(typeof(clsCustomer))
-            {
-                Name = "SpecificID",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                Parameters = new SingleStringID(),
-                ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsCustomer))
-            {
-                Name = "Insert",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                Parameters = modPopulateParamClasses.PopulateNewCustomerClass(),
-                ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsCustomer))
-            {
-                Name = "Search",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                Parameters = new CustomerSearchArguments() { EmailAddress = "bill@microsoft.com"},
-                ActionResult = ControllerAction.ActionResultEnum.ClassList
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsCustomerTitle))
-            {
-                Name = "Titles",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList
-            });
-            c.Actions.Add(new ControllerAction(null)
-            {
-                Name = "Update",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                Parameters = modPopulateParamClasses.PopulateNewCustomerClass(),
-                ActionResult = ControllerAction.ActionResultEnum.ResponseMessage
-            });
+                c.Actions.Add(new ControllerAction(typeof(clsCustomer))
+                {
+                    Name = "SpecificID",
+                    Method = ControllerAction.MethodEnum.eGet,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new SingleStringID(),
+                    ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance
+                });
+                c.Actions.Add(new ControllerAction(typeof(clsCustomer))
+                {
+                    Name = "Insert",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = modPopulateParamClasses.PopulateNewCustomerClass(),
+                    ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance
+                });
+                c.Actions.Add(new ControllerAction(typeof(clsCustomer))
+                {
+                    Name = "Search",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new CustomerSearchArguments() { EmailAddress = "bill@microsoft.com"},
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList
+                });
+                c.Actions.Add(new ControllerAction(typeof(clsCustomerTitle))
+                {
+                    Name = "Titles",
+                    Method = ControllerAction.MethodEnum.eGet,
+                    Controller = (Controller)c.Clone(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList
+                });
+                c.Actions.Add(new ControllerAction(null)
+                {
+                    Name = "Update",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = modPopulateParamClasses.PopulateNewCustomerClass(),
+                    ActionResult = ControllerAction.ActionResultEnum.ResponseMessage
+                });
             m_Controllers.Add(c);
 
             c = new Controller { Name = "Categories" };
-            c.Actions.Add(new ControllerAction(typeof(clsCategory))
-            {
-                Name = "All",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsCategory))
-            {
-                Name = "SpecificID",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                Parameters = new SingleStringID(),
-                ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance
-            });
-            c.Actions.Add(new ControllerAction(null)
-            {
-                Name = "UpdateCartIDs",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                Parameters = new clsCategoryIDList(),
-                ActionResult = ControllerAction.ActionResultEnum.ResponseMessage
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsCategory))
-            {
-                Name = "ChildCategories",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                Parameters = new SingleStringID(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList
-            });
+                c.Actions.Add(new ControllerAction(typeof(clsCategory))
+                {
+                    Name = "All",
+                    Method = ControllerAction.MethodEnum.eGet,
+                    Controller = (Controller)c.Clone(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList
+                });
+                c.Actions.Add(new ControllerAction(typeof(clsCategory))
+                {
+                    Name = "SpecificID",
+                    Method = ControllerAction.MethodEnum.eGet,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new SingleStringID(),
+                    ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance
+                });
+                c.Actions.Add(new ControllerAction(null)
+                {
+                    Name = "UpdateCartIDs",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new clsCategoryIDList(),
+                    ActionResult = ControllerAction.ActionResultEnum.ResponseMessage
+                });
+                c.Actions.Add(new ControllerAction(typeof(clsCategory))
+                {
+                    Name = "ChildCategories",
+                    Method = ControllerAction.MethodEnum.eGet,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new SingleStringID(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList
+                });
             m_Controllers.Add(c);
 
             c = new Controller { Name = "Products" };
-            c.Actions.Add(new ControllerAction(typeof(clsProduct))
-            {
-                Name = "All",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                Parameters = new EskimoClassLibraries.RecordSelectionWithDate(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsProduct))
-            {
-                Name = "SpecificID",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                Parameters = new SingleStringID(),
-                ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance
-            });
-            c.Actions.Add(new ControllerAction(null)
-            {
-                Name = "UpdateCartIDs",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                Parameters = new List<EskimoClassLibraries.ProductID>(),
-                ActionResult = ControllerAction.ActionResultEnum.ResponseMessage
-            });
+                c.Actions.Add(new ControllerAction(typeof(clsProduct))
+                {
+                    Name = "All",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new EskimoClassLibraries.RecordSelectionWithDate(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList
+                });
+                c.Actions.Add(new ControllerAction(typeof(clsProduct))
+                {
+                    Name = "SpecificID",
+                    Method = ControllerAction.MethodEnum.eGet,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new SingleStringID(),
+                    ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance
+                });
+                c.Actions.Add(new ControllerAction(null)
+                {
+                    Name = "UpdateCartIDs",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new List<EskimoClassLibraries.ProductID>(),
+                    ActionResult = ControllerAction.ActionResultEnum.ResponseMessage
+                });
             m_Controllers.Add(c);
 
             c = new Controller { Name = "TaxCodes" };
-            c.Actions.Add(new ControllerAction(typeof(clsTaxCode))
+                c.Actions.Add(new ControllerAction(typeof(clsTaxCode))
+                {
+                    Name = "All",
+                    Method = ControllerAction.MethodEnum.eGet,
+                    Controller = (Controller)c.Clone(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList
+                });
+                c.Actions.Add(new ControllerAction(typeof(clsTaxCode))
+                {
+                    Name = "SpecificID",
+                    Method = ControllerAction.MethodEnum.eGet,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new SingleStringID(),
+                    ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance
+                });
+            m_Controllers.Add(c);
+
+            c = new Controller { Name = "Skus" };
+                c.Actions.Add(new ControllerAction(typeof(clsSKU))
+                {
+                    Name = "All",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new EskimoClassLibraries.RecordSelectionWithDate(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList
+                });
+                c.Actions.Add(new ControllerAction(typeof(clsSKU))
+                {
+                    Name = "SpecificSKUCode",
+                    Method = ControllerAction.MethodEnum.eGet,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new SingleStringID(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList
+                });
+                c.Actions.Add(new ControllerAction(typeof(clsSKU))
+                {
+                    Name = "SpecificIdentifier",
+                    Method = ControllerAction.MethodEnum.eGet,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new SingleStringID(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList
+                });
+            m_Controllers.Add(c);
+
+            c = new Controller { Name = "Orders" };
+                c.Actions.Add(new ControllerAction(typeof(clsShippingType))
+                {
+                    Name = "FulfilmentMethods",
+                    Method = ControllerAction.MethodEnum.eGet,
+                    Controller = (Controller)c.Clone(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList,
+                    UseGrid = false
+                });
+                c.Actions.Add(new ControllerAction(typeof(clsExtendedOrder))
+                {
+                    Name = "Insert",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = modPopulateParamClasses.PopulateOrderClass(),
+                    ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
+                    UseGrid = false
+                });
+                //c.Actions.Add(new ControllerAction(typeof(clsExtendedOrder))
+                //{
+                //    Name = "CustomerSale",
+                //    Method = ControllerAction.MethodEnum.eGet,
+                //    Controller = (Controller)c.Clone(),
+                //    Parameters = new SingleIntegerID() { id =12345 },
+                //    ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
+                //    UseGrid = false
+                //});
+                c.Actions.Add(new ControllerAction(typeof(clsExtendedOrder))
+                {
+                    Name = "Search",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = modPopulateParamClasses.PopulateOrderSearch(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList,
+                    UseGrid = false
+                });
+                //c.Actions.Add(new ControllerAction(typeof(clsExtendedOrder))
+                //{
+                //    Name = "eBayOrder",
+                //    Method = ControllerAction.MethodEnum.eGet,
+                //    Controller = (Controller)c.Clone(),
+                //    Parameters = new SingleStringID() { id = "XXXXXXXXXXXX-XXXXXXXXXXX" },
+                //    ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
+                //    UseGrid = false
+                //});
+
+                //c.Actions.Add(new ControllerAction(typeof(clsExtendedOrder))
+                //{
+                //    Name = "AmazonOrder",
+                //    Method = ControllerAction.MethodEnum.eGet,
+                //    Controller = (Controller)c.Clone(),
+                //    Parameters = new SingleStringID() { id = "XXX" },
+                //    ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
+                //    UseGrid = false
+                //});
+                c.Actions.Add(new ControllerAction(typeof(clsExtendedOrder))
+                {
+                    Name = "WebsiteOrder",
+                    Method = ControllerAction.MethodEnum.eGet,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new SingleIntegerID() { id = 12345 },
+                    ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
+                    UseGrid = false
+                });
+                //c.Actions.Add(new ControllerAction(typeof(clsExtendedOrder))
+                //{
+                //    Name = "CustomerOrder",
+                //    Method = ControllerAction.MethodEnum.eGet,
+                //    Controller = (Controller)c.Clone(),
+                //    Parameters = new SingleIntegerID() { id = 12345 },
+                //    ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
+                //    UseGrid = false
+                //});
+                //c.Actions.Add(new ControllerAction(typeof(clsExtendedOrder))
+                //{
+                //    Name = "MailOrder",
+                //    Method = ControllerAction.MethodEnum.eGet,
+                //    Controller = (Controller)c.Clone(),
+                //    Parameters = new SingleIntegerID() { id = 12345 },
+                //    ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
+                //    UseGrid = false
+                //});
+            m_Controllers.Add(c);
+
+            c = new Controller { Name = "Tenders" };
+                c.Actions.Add(new ControllerAction(typeof(clsTender))
+                {
+                    Name = "All",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList,
+                    UseGrid = true,
+                    Parameters = new TenderArguments() { CreditCardTenders = modEnums.FilterEnum.Exclude},
+                });
+            m_Controllers.Add(c);
+
+            c = new Controller { Name = "TillMenu" };
+                c.Actions.Add(new ControllerAction(typeof(clsChargeArea))
+                {
+                    Name = "Areas",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList,
+                    UseGrid = false
+                });
+                c.Actions.Add(new ControllerAction(typeof(clsTillMenuProduct))
+                {
+                    Name = "Products",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList,
+                    Parameters = new RecordSelectionWithDate(),
+                    UseGrid = true
+                });
+                c.Actions.Add(new ControllerAction(typeof(clsTillMenuSection))
+                {
+                    Name = "Sections",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList,
+                    UseGrid = false
+                });
+                c.Actions.Add(new ControllerAction(typeof(clsTillMenuProduct))
+                {
+                    Name = "ProductSearch",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList,
+                    Parameters = new ProductSearchArguments
+                    {
+                        GroupDescription = "T-Shirts",
+                        SupplierName = "ABC Clothing Ltd"
+                    },
+                    UseGrid = true
+                });
+                c.Actions.Add(new ControllerAction(typeof(clsTillMenuFunction))
+                {
+                    Name = "Functions",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList,
+                    UseGrid = true
+                });
+                c.Actions.Add(new ControllerAction(typeof(clsTillMenuSourceCode))
+                {
+                    Name = "SourceCodes",
+                    Method = ControllerAction.MethodEnum.eGet,
+                    Controller = (Controller)c.Clone(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList,
+                    UseGrid = true
+                });
+                c.Actions.Add(new ControllerAction(typeof(clsTillMenuUnitInfo))
+                {
+                    Name = "UnitInfo",
+                    Method = ControllerAction.MethodEnum.eGet,
+                    Controller = (Controller)c.Clone(),
+                    ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
+                    UseGrid = false
+                });
+                c.Actions.Add(new ControllerAction(null)
+                {
+                    Name = "SendOrderItems",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    ActionResult = ControllerAction.ActionResultEnum.ResponseMessage,
+                    Parameters = modPopulateParamClasses.PopulateSendOrder(),
+                    UseGrid = true
+                });
+            m_Controllers.Add(c);
+
+            c = new Controller { Name = "Images" };
+                c.Actions.Add(new ControllerAction(typeof(clsImage))
+                {
+                    Name = "All",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new RecordSelectionWithDate(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList
+                });
+                c.Actions.Add(new ControllerAction(typeof(Image))
+                {
+                    Name = "ImageData",
+                    Method = ControllerAction.MethodEnum.eGet,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new SingleIntegerID(),
+                    ActionResult = ControllerAction.ActionResultEnum.EskimoImage
+                });
+            m_Controllers.Add(c);
+
+            c = new Controller { Name = "ImageLinks" };
+                c.Actions.Add(new ControllerAction(typeof(clsImageLink))
+                {
+                    Name = "All",
+                    Method = ControllerAction.MethodEnum.ePost,
+                    Controller = (Controller)c.Clone(),
+                    Parameters = new RecordSelectionWithDate(),
+                    ActionResult = ControllerAction.ActionResultEnum.ClassList
+                });
+            m_Controllers.Add(c);
+
+            c = new Controller { Name = "Addresses" };
+            c.Actions.Add(new ControllerAction(typeof(AddressValidationSummary))
             {
-                Name = "All",
-                Method = ControllerAction.MethodEnum.eGet,
+                Name = "AddressValidationSummary",
+                Method = ControllerAction.MethodEnum.ePost,
                 Controller = (Controller)c.Clone(),
+                Parameters = new AddressValidatorParams() {PostCode = "BH23 6BB"},
                 ActionResult = ControllerAction.ActionResultEnum.ClassList
             });
-            c.Actions.Add(new ControllerAction(typeof(clsTaxCode))
+            c.Actions.Add(new ControllerAction(typeof(clsAddress))
             {
-                Name = "SpecificID",
+                Name = "AddressValidationDetailed",
                 Method = ControllerAction.MethodEnum.eGet,
                 Controller = (Controller)c.Clone(),
                 Parameters = new SingleStringID(),
                 ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance
-            });
-            m_Controllers.Add(c);
-
-            c = new Controller { Name = "Skus" };
-            c.Actions.Add(new ControllerAction(typeof(clsSKU))
-            {
-                Name = "All",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                Parameters = new EskimoClassLibraries.RecordSelectionWithDate(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsSKU))
-            {
-                Name = "SpecificSKUCode",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                Parameters = new SingleStringID(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsSKU))
-            {
-                Name = "SpecificIdentifier",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                Parameters = new SingleStringID(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList
-            });
-            m_Controllers.Add(c);
-
-            c = new Controller { Name = "Orders" };
-            c.Actions.Add(new ControllerAction(typeof(clsShippingType))
-            {
-                Name = "FulfilmentMethods",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList,
-                UseGrid = false
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsExtendedOrder))
-            {
-                Name = "Insert",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                Parameters = modPopulateParamClasses.PopulateOrderClass(),
-                ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
-                UseGrid = false
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsExtendedOrder))
-            {
-                Name = "CustomerSale",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                Parameters = new SingleIntegerID() { id =12345 },
-                ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
-                UseGrid = false
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsExtendedOrder))
-            {
-                Name = "Search",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                Parameters = modPopulateParamClasses.PopulateOrderSearch(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList,
-                UseGrid = false
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsExtendedOrder))
-            {
-                Name = "eBayOrder",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                Parameters = new SingleStringID() { id = "XXXXXXXXXXXX-XXXXXXXXXXX" },
-                ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
-                UseGrid = false
-            });
-
-            c.Actions.Add(new ControllerAction(typeof(clsExtendedOrder))
-            {
-                Name = "AmazonOrder",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                Parameters = new SingleStringID() { id = "XXX" },
-                ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
-                UseGrid = false
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsExtendedOrder))
-            {
-                Name = "WebsiteOrder",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                Parameters = new SingleIntegerID() { id = 12345 },
-                ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
-                UseGrid = false
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsExtendedOrder))
-            {
-                Name = "CustomerOrder",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                Parameters = new SingleIntegerID() { id = 12345 },
-                ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
-                UseGrid = false
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsExtendedOrder))
-            {
-                Name = "MailOrder",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                Parameters = new SingleIntegerID() { id = 12345 },
-                ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
-                UseGrid = false
-            });
-            m_Controllers.Add(c);
-
-            c = new Controller { Name = "Tenders" };
-            c.Actions.Add(new ControllerAction(typeof(clsTender))
-            {
-                Name = "All",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList,
-                UseGrid = true,
-                Parameters = new TenderArguments() { CreditCardTenders = modEnums.FilterEnum.Exclude},
-            });
-            m_Controllers.Add(c);
-
-            c = new Controller { Name = "TillMenu" };
-            c.Actions.Add(new ControllerAction(typeof(clsChargeArea))
-            {
-                Name = "Areas",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList,
-                UseGrid = false
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsTillMenuProduct))
-            {
-                Name = "Products",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList,
-                Parameters = new RecordSelectionWithDate(),
-                UseGrid = true
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsTillMenuSection))
-            {
-                Name = "Sections",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList,
-                UseGrid = false
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsTillMenuProduct))
-            {
-                Name = "ProductSearch",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList,
-                Parameters  = new ProductSearchArguments {GroupDescription = "T-Shirts",
-                                                          SupplierName = "ABC Clothing Ltd"},
-                UseGrid = true
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsTillMenuFunction))
-            {
-                Name = "Functions",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList,
-                UseGrid = true
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsTillMenuSourceCode))
-            {
-                Name = "SourceCodes",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList,
-                UseGrid = true
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsTillMenuUnitInfo))
-            {
-                Name = "UnitInfo",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
-                UseGrid = false
-            });
-            c.Actions.Add(new ControllerAction(null)
-            {
-                Name = "SendOrderItems",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                ActionResult = ControllerAction.ActionResultEnum.ResponseMessage,
-                Parameters = modPopulateParamClasses.PopulateSendOrder(),
-                UseGrid = true
-            });
-            m_Controllers.Add(c);
-
-            c = new Controller { Name = "Images" };
-            c.Actions.Add(new ControllerAction(typeof(clsImage))
-            {
-                Name = "All",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                Parameters = new RecordSelectionWithDate(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList
-            });
-            c.Actions.Add(new ControllerAction(typeof(Image))
-            {
-                Name = "ImageData",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                Parameters = new SingleIntegerID(),
-                ActionResult = ControllerAction.ActionResultEnum.EskimoImage
-            });
-            m_Controllers.Add(c);
-
-            c = new Controller { Name = "ImageLinks" };
-            c.Actions.Add(new ControllerAction(typeof(clsImageLink))
-            {
-                Name = "All",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                Parameters = new RecordSelectionWithDate(),
-                ActionResult = ControllerAction.ActionResultEnum.ClassList
             });
             m_Controllers.Add(c);
 
