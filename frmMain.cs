@@ -530,14 +530,6 @@ namespace Win_Forms_Client
                     },
                     UseGrid = true
                 });
-                c.Actions.Add(new ControllerAction(typeof(clsTillMenuFunction))
-                {
-                    Name = "Functions",
-                    Method = ControllerAction.MethodEnum.ePost,
-                    Controller = (Controller)c.Clone(),
-                    ActionResult = ControllerAction.ActionResultEnum.ClassList,
-                    UseGrid = true
-                });
                 c.Actions.Add(new ControllerAction(typeof(clsTillMenuSourceCode))
                 {
                     Name = "SourceCodes",
