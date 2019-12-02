@@ -120,7 +120,7 @@ namespace Win_Forms_Client
                     Controller = (Controller)c.Clone(),
                     Parameters = new clsBarcodeAction()
                     {
-                        ActionType = clsBarcodeAction.ActionTypeEnum.PrintBarcode,
+                        ActionType = clsBarcodeAction.BarcodeActionTypeEnum.PrintBarcode,
                         Notes = "These are some notes",
                         OperatorID = "1",
                         BarcodeScanned = "00000001",
@@ -541,9 +541,10 @@ namespace Win_Forms_Client
                 c.Actions.Add(new ControllerAction(typeof(clsTillMenuUnitInfo))
                 {
                     Name = "UnitInfo",
-                    Method = ControllerAction.MethodEnum.eGet,
+                    Method = ControllerAction.MethodEnum.ePost ,
                     Controller = (Controller)c.Clone(),
                     ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
+                    Parameters= new UnitInfoArgs { DeviceToken= "AAABBBCC" },
                     UseGrid = false
                 });
                 c.Actions.Add(new ControllerAction(null)
