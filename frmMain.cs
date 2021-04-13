@@ -404,7 +404,7 @@ namespace Win_Forms_Client
                     ActionResult = ControllerAction.ActionResultEnum.ClassList,
                     UseGrid = false
                 });
-                c.Actions.Add(new ControllerAction(typeof(clsExtendedOrder))
+                c.Actions.Add(new ControllerAction(typeof(clsOrderExt))
                 {
                     Name = "Insert",
                     Method = ControllerAction.MethodEnum.ePost,
@@ -422,7 +422,7 @@ namespace Win_Forms_Client
                 //    ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
                 //    UseGrid = false
                 //});
-                c.Actions.Add(new ControllerAction(typeof(clsExtendedOrder))
+                c.Actions.Add(new ControllerAction(typeof(clsOrderExt))
                 {
                     Name = "Search",
                     Method = ControllerAction.MethodEnum.ePost,
@@ -450,7 +450,7 @@ namespace Win_Forms_Client
                 //    ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance,
                 //    UseGrid = false
                 //});
-                c.Actions.Add(new ControllerAction(typeof(clsExtendedOrder))
+                c.Actions.Add(new ControllerAction(typeof(clsOrderExt))
                 {
                     Name = "WebsiteOrder",
                     Method = ControllerAction.MethodEnum.eGet,
@@ -547,15 +547,15 @@ namespace Win_Forms_Client
                     Parameters= new UnitInfoArgs { DeviceToken= "AAABBBCC" },
                     UseGrid = false
                 });
-                c.Actions.Add(new ControllerAction(null)
-                {
-                    Name = "SendOrderItems",
-                    Method = ControllerAction.MethodEnum.ePost,
-                    Controller = (Controller)c.Clone(),
-                    ActionResult = ControllerAction.ActionResultEnum.ResponseMessage,
-                    Parameters = modPopulateParamClasses.PopulateSendOrder(),
-                    UseGrid = true
-                });
+                //c.Actions.Add(new ControllerAction(null)
+                //{
+                //    Name = "SendOrderItems",
+                //    Method = ControllerAction.MethodEnum.ePost,
+                //    Controller = (Controller)c.Clone(),
+                //    ActionResult = ControllerAction.ActionResultEnum.ResponseMessage,
+                //    Parameters = modPopulateParamClasses.PopulateSendOrder(),
+                //    UseGrid = true
+                //});
             m_Controllers.Add(c);
 
             c = new Controller { Name = "Images" };
