@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "06fb6e1c-68d3-443b-95af-61186d0e279a": {
+      "ProjectGuid": "06fb6e1c-68d3-443b-95af-61186d0e279a",
+      "DisplayName": "Win Forms Client",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
