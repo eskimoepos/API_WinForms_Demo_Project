@@ -588,24 +588,24 @@ namespace Win_Forms_Client
                 });
             m_Controllers.Add(c);
 
-            c = new Controller { Name = "Addresses" };
-            c.Actions.Add(new ControllerAction(typeof(AddressValidationSummary))
-            {
-                Name = "AddressValidationSummary",
-                Method = ControllerAction.MethodEnum.ePost,
-                Controller = (Controller)c.Clone(),
-                Parameters = new AddressValidatorParams() {PostCode = "BH23 6BB"},
-                ActionResult = ControllerAction.ActionResultEnum.ClassList
-            });
-            c.Actions.Add(new ControllerAction(typeof(clsAddress))
-            {
-                Name = "AddressValidationDetailed",
-                Method = ControllerAction.MethodEnum.eGet,
-                Controller = (Controller)c.Clone(),
-                Parameters = new SingleStringID(),
-                ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance
-            });
-            m_Controllers.Add(c);
+            //c = new Controller { Name = "Addresses" };
+            //c.Actions.Add(new ControllerAction(typeof(AddressValidationSummary))
+            //{
+            //    Name = "AddressValidationSummary",
+            //    Method = ControllerAction.MethodEnum.ePost,
+            //    Controller = (Controller)c.Clone(),
+            //    Parameters = new AddressValidatorParams() {PostCode = "BH23 6BB"},
+            //    ActionResult = ControllerAction.ActionResultEnum.ClassList
+            //});
+            //c.Actions.Add(new ControllerAction(typeof(clsAddress))
+            //{
+            //    Name = "AddressValidationDetailed",
+            //    Method = ControllerAction.MethodEnum.eGet,
+            //    Controller = (Controller)c.Clone(),
+            //    Parameters = new SingleStringID(),
+            //    ActionResult = ControllerAction.ActionResultEnum.SingleClassInstance
+            //});
+            //m_Controllers.Add(c);
 
         }
 
